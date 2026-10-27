@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-AR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="img/favicon.svg">
 <title>Clínica Veterinaria Alba — Clínica y hospital veterinario</title>
 <meta name="description" content="Clínica Veterinaria Alba: medicina avanzada para perros y gatos. Especialidades, cirugía, diagnóstico por imágenes e internación, con urgencias las 24 horas.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -120,6 +121,7 @@
   .ba .after{clip-path:inset(0 0 0 50%)}
   .ba .handle{position:absolute;top:0;bottom:0;left:50%;width:3px;background:#fff;transform:translateX(-50%);box-shadow:0 0 0 1px rgba(0,0,0,.12)}
   .ba .knob{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:46px;height:46px;border-radius:50%;background:#fff;color:var(--teal);display:flex;align-items:center;justify-content:center;font-weight:800;box-shadow:0 6px 18px rgba(0,0,0,.25);font-size:1rem}
+  .ba:focus-visible{outline:3px solid var(--teal-2);outline-offset:4px}
   .ba .tag{position:absolute;top:14px;z-index:3;background:rgba(10,61,57,.82);color:#fff;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 11px;border-radius:999px}
   .ba .tag.l{left:14px}.ba .tag.r{right:14px}
   /* Datos prácticos */
@@ -137,6 +139,7 @@
   .closing p{color:var(--muted);max-width:36rem;margin:0 auto 24px}
   footer.site{background:#0a3d39;color:#cfe8e2;font-size:.9rem}
   footer.site .wrap{padding-top:26px;padding-bottom:26px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+  footer.site .demo-note{flex-basis:100%;font-size:.78rem;line-height:1.5;padding-right:68px}
   /* Flotante */
   .float-wa{position:fixed;right:18px;bottom:18px;z-index:60;width:58px;height:58px;border-radius:50%;background:var(--wa);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 24px rgba(0,0,0,.22)}
   .float-wa svg{width:30px;height:30px}
@@ -214,7 +217,7 @@
 <div class="stats">
   <div class="wrap">
     <div><div class="num"><span data-count="12000" data-prefix="+">+0</span></div><div class="lbl">pacientes atendidos</div></div>
-    <div><div class="num"><span data-count="9">0</span></div><div class="lbl">especialidades médicas</div></div>
+    <div><div class="num"><span data-count="6">0</span></div><div class="lbl">especialidades médicas</div></div>
     <div><div class="num"><span data-count="24">0</span>/7</div><div class="lbl">guardia de urgencias</div></div>
     <div><div class="num"><span data-count="14">0</span></div><div class="lbl">profesionales en el equipo</div></div>
   </div>
@@ -307,7 +310,7 @@
           <li>Corte de uñas y limpieza de oídos incluidos</li>
         </ul>
       </div>
-      <div class="ba" id="baSlider" data-reveal role="img" aria-label="Comparación del proceso de peluquería canina: en el baño y terminado">
+      <div class="ba" id="baSlider" data-reveal tabindex="0" role="slider" aria-label="Comparar en el baño y terminado" aria-orientation="horizontal" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
         <img src="img/p6816860.jpg" alt="Perro terminado en la peluquería">
         <img class="after" id="baAfter" src="img/p6131165.jpg" alt="Perro durante el baño">
         <span class="tag l">Terminado</span><span class="tag r">En el baño</span>
@@ -326,10 +329,10 @@
       <p class="sub">Un equipo estable, que conoce a cada paciente por su nombre y sigue su historia en el tiempo.</p>
     </div>
     <div class="grid c4">
-      <div class="member" data-reveal><img src="img/p7469229.jpg" alt="Dra. Valeria Montes atendiendo a un perro"><div class="body"><h3>Dra. Valeria Montes</h3><span class="tag">Dirección médica · Medicina interna</span><p>Más de 15 años de clínica de pequeños animales y formación continua en medicina interna.</p></div></div>
-      <div class="member" data-reveal><img src="img/p7474857.jpg" alt="Dr. Martín Aguirre en una curación"><div class="body"><h3>Dr. Martín Aguirre</h3><span class="tag">Cirugía y traumatología</span><p>Cirujano del equipo, a cargo del quirófano y de los seguimientos posoperatorios.</p></div></div>
-      <div class="member" data-reveal><img src="img/p6816869.jpg" alt="Dra. Sofía Herrera con un gato"><div class="body"><h3>Dra. Sofía Herrera</h3><span class="tag">Medicina felina e imágenes</span><p>Especialista en gatos y en diagnóstico por imágenes: ecografías y radiología digital.</p></div></div>
-      <div class="member" data-reveal><img src="img/p7469223.jpg" alt="Dra. Lucía Ferrer vacunando a un perro"><div class="body"><h3>Dra. Lucía Ferrer</h3><span class="tag">Odontología y cardiología</span><p>Salud bucal y control cardíaco de pacientes crónicos y seniors.</p></div></div>
+      <div class="member" data-reveal><img src="img/equipo-1.jpg" alt="Foto ilustrativa de una profesional con guardapolvo blanco atendiendo a un perro en el consultorio"><div class="body"><h3>Dra. Valeria Montes</h3><span class="tag">Dirección médica · Medicina interna</span><p>Más de 15 años de clínica de pequeños animales y formación continua en medicina interna.</p></div></div>
+      <div class="member" data-reveal><img src="img/equipo-2.jpg" alt="Foto ilustrativa de un veterinario con ambo y estetoscopio sosteniendo a un perro"><div class="body"><h3>Dr. Martín Aguirre</h3><span class="tag">Cirugía y traumatología</span><p>Cirujano del equipo, a cargo del quirófano y de los seguimientos posoperatorios.</p></div></div>
+      <div class="member" data-reveal><img src="img/equipo-3.jpg" alt="Foto ilustrativa de una mujer sosteniendo a un gato gris al aire libre"><div class="body"><h3>Dra. Sofía Herrera</h3><span class="tag">Medicina felina e imágenes</span><p>Especialista en gatos y en diagnóstico por imágenes: ecografías y radiología digital.</p></div></div>
+      <div class="member" data-reveal><img src="img/equipo-4.jpg" alt="Foto ilustrativa de una veterinaria con guardapolvo blanco frente a un fondo oscuro"><div class="body"><h3>Dra. Lucía Ferrer</h3><span class="tag">Odontología y cardiología</span><p>Salud bucal y control cardíaco de pacientes crónicos y seniors.</p></div></div>
     </div>
     <div class="grid c3">
       <div class="quote" data-reveal><div class="stars">★★★★★</div><p>“Llevo a mi perra desde cachorra. Siempre me explican todo con paciencia y los controles llegan con aviso, nunca me olvido de una vacuna.”</p><div class="who">Mariana G. · tutora de Lola</div></div>
@@ -374,6 +377,7 @@
   <div class="wrap">
     <span>Clínica Veterinaria Alba · Clínica y hospital veterinario</span>
     <span>Av. del Libertador 4200, Núñez · Urgencias 24 h</span>
+    <p class="demo-note">Vidriera de demostración de Nexvia IA · Marca, personas y datos ficticios.</p>
   </div>
 </footer>
 
@@ -388,12 +392,25 @@
   /* Antes y después */
   var ba = document.getElementById("baSlider"), after = document.getElementById("baAfter"), handle = document.getElementById("baHandle");
   if (ba && after && handle) {
+    var position = 50;
+    var setPosition = function(value){
+      position = Math.round(Math.min(100, Math.max(0, value)));
+      after.style.clipPath = "inset(0 0 0 " + position + "%)";
+      handle.style.left = position + "%";
+      ba.setAttribute("aria-valuenow", position);
+    };
     var setBA = function(clientX){
       var r = ba.getBoundingClientRect();
-      var p = Math.min(96, Math.max(4, (clientX - r.left) / r.width * 100));
-      after.style.clipPath = "inset(0 0 0 " + p + "%)";
-      handle.style.left = p + "%";
+      setPosition((clientX - r.left) / r.width * 100);
     };
+    ba.addEventListener("keydown", function(e){
+      if (e.key === "ArrowLeft") setPosition(position - 4);
+      else if (e.key === "ArrowRight") setPosition(position + 4);
+      else if (e.key === "Home") setPosition(0);
+      else if (e.key === "End") setPosition(100);
+      else return;
+      e.preventDefault();
+    });
     var drag = false;
     ba.addEventListener("pointerdown", function(e){ drag = true; ba.setPointerCapture(e.pointerId); setBA(e.clientX); });
     ba.addEventListener("pointermove", function(e){ if (drag) setBA(e.clientX); });
