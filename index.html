@@ -46,6 +46,7 @@
   .btn.ghost{background:#fff;color:var(--teal);border:2px solid var(--mint-2)}
   .btn.ghost:hover{border-color:var(--teal-2);color:var(--teal-2)}
   @media(max-width:860px){nav.main{display:none}}
+  @media(max-width:600px){header.site .btn{white-space:nowrap;padding:10px 12px;font-size:.85rem;flex-shrink:0}}
   /* Hero */
   .hero{background:linear-gradient(180deg,var(--mint) 0%,#fff 92%);overflow:hidden}
   .hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:34px;align-items:center;padding-top:52px;padding-bottom:58px}
@@ -76,6 +77,7 @@
   .blend.from-mint{background:linear-gradient(180deg,var(--mint) 0%,var(--bg) 100%)}
   /* Secciones */
   section.block{padding:58px 0}
+  #servicios,#especialidades,#instalaciones,#equipo,#contacto{scroll-margin-top:120px}
   section.block.alt{background:var(--mint)}
   .kicker{color:var(--teal-2);font-weight:800;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase}
   h2.title{font-size:2.1rem;font-weight:600;color:var(--teal);margin:8px 0 10px;line-height:1.15}
@@ -138,7 +140,7 @@
   .closing h2{font-size:2.2rem;font-weight:600;color:var(--teal);margin-bottom:10px}
   .closing p{color:var(--muted);max-width:36rem;margin:0 auto 24px}
   footer.site{background:#0a3d39;color:#cfe8e2;font-size:.9rem}
-  footer.site .wrap{padding-top:26px;padding-bottom:26px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+  footer.site .wrap{padding-top:26px;padding-bottom:6rem;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
   footer.site .demo-note{flex-basis:100%;font-size:.78rem;line-height:1.5;padding-right:68px}
   /* Flotante */
   .float-wa{position:fixed;right:18px;bottom:18px;z-index:60;width:58px;height:58px;border-radius:50%;background:var(--wa);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 24px rgba(0,0,0,.22)}
@@ -241,7 +243,7 @@
         <div class="body"><h3>Vacunación y planes de salud</h3><p>Calendario completo para cachorros, adultos y seniors, con aviso previo a cada vencimiento para que nunca se te pase una dosis.</p></div>
       </article>
       <article class="card" data-reveal>
-        <img src="img/p7474857.jpg" alt="Veterinario vendando la pata de un perro">
+        <img src="img/p7474857.jpg" alt="Manos con guantes colocando un vendaje en la pata de un gato">
         <div class="body"><h3>Traumatología y curaciones</h3><p>Atención de heridas, vendajes, yesos y seguimiento de fracturas, con control radiográfico en la misma clínica.</p></div>
       </article>
     </div>
@@ -330,7 +332,7 @@
     </div>
     <div class="grid c4">
       <div class="member" data-reveal><img src="img/equipo-1.jpg" alt="Foto ilustrativa de una profesional con guardapolvo blanco atendiendo a un perro en el consultorio"><div class="body"><h3>Dra. Valeria Montes</h3><span class="tag">Dirección médica · Medicina interna</span><p>Más de 15 años de clínica de pequeños animales y formación continua en medicina interna.</p></div></div>
-      <div class="member" data-reveal><img src="img/equipo-2.jpg" alt="Foto ilustrativa de un veterinario con ambo y estetoscopio sosteniendo a un perro"><div class="body"><h3>Dr. Martín Aguirre</h3><span class="tag">Cirugía y traumatología</span><p>Cirujano del equipo, a cargo del quirófano y de los seguimientos posoperatorios.</p></div></div>
+      <div class="member" data-reveal><img src="img/equipo-2.jpg" alt="Foto ilustrativa de un veterinario con ambo azul atendiendo a un perro negro en la camilla"><div class="body"><h3>Dr. Martín Aguirre</h3><span class="tag">Cirugía y traumatología</span><p>Cirujano del equipo, a cargo del quirófano y de los seguimientos posoperatorios.</p></div></div>
       <div class="member" data-reveal><img src="img/equipo-3.jpg" alt="Foto ilustrativa de una mujer sosteniendo a un gato gris al aire libre"><div class="body"><h3>Dra. Sofía Herrera</h3><span class="tag">Medicina felina e imágenes</span><p>Especialista en gatos y en diagnóstico por imágenes: ecografías y radiología digital.</p></div></div>
       <div class="member" data-reveal><img src="img/equipo-4.jpg" alt="Foto ilustrativa de una veterinaria con guardapolvo blanco frente a un fondo oscuro"><div class="body"><h3>Dra. Lucía Ferrer</h3><span class="tag">Odontología y cardiología</span><p>Salud bucal y control cardíaco de pacientes crónicos y seniors.</p></div></div>
     </div>
