@@ -60,19 +60,30 @@
   .hero .ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
   .hero .badges{display:flex;gap:18px;flex-wrap:wrap;margin-top:28px;font-size:.92rem}
   .hero .badges b{color:var(--teal)}
-  .hero .visual{position:relative}
-  .hero figure{border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow)}
-  .hero figure img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3;transform:scale(1.06)}
-  .hero .floatcard{position:absolute;left:-16px;bottom:22px;background:#fff;border-radius:var(--r-md);box-shadow:var(--shadow);padding:14px 18px;display:flex;gap:12px;align-items:center;max-width:270px}
+  .hero .visual{position:relative;padding-bottom:76px;isolation:isolate}
+  .hero figure{border-radius:48% 48% var(--r-lg) var(--r-lg);overflow:hidden;box-shadow:var(--shadow)}
+  .hero figure img{width:100%;height:100%;object-fit:cover;aspect-ratio:1.15;transform:scale(1.06)}
+  .hero-pets{position:absolute;inset:0;pointer-events:none;z-index:2}
+  .hero-pets img{position:absolute;bottom:0;height:auto;object-fit:contain}
+  .hero-pets .pet-dog{width:43%;left:-16px}
+  .hero-pets .pet-cat{width:32%;right:-8px}
+  .hero .floatcard{position:absolute;right:-4px;top:30px;background:#fff;border-radius:var(--r-md);box-shadow:var(--shadow);padding:12px 15px;display:flex;gap:12px;align-items:center;max-width:190px;z-index:3}
   .hero .floatcard .stars{color:var(--amber);letter-spacing:2px;font-size:.95rem}
   .hero .floatcard p{font-size:.86rem;color:var(--muted);line-height:1.35}
   .hero .floatcard p b{color:var(--ink);font-size:1.02rem}
-  @media(max-width:860px){.hero .floatcard{left:10px;bottom:10px}}
+  @media(max-width:860px){.hero .visual{max-width:560px;width:100%;margin:0 auto}.hero .floatcard{right:0;top:26px}}
+  @media(max-width:600px){
+    .hero .badges{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;font-size:.82rem;line-height:1.5}
+    .hero .badges b{display:block}
+    .hero .visual{padding-bottom:58px;margin-top:8px}
+    .hero-pets .pet-dog{left:-2px;width:43%}.hero-pets .pet-cat{right:-2px;width:32%}
+    .hero .floatcard{top:18px;padding:10px 12px;max-width:176px}.hero .floatcard p{font-size:.82rem}.hero .floatcard p b{font-size:.95rem}
+  }
   /* Franja de números */
   .stats{background:var(--teal);color:#eafaf6}
-  .stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;padding-top:28px;padding-bottom:28px;text-align:center}
+  .stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;padding-top:19px;padding-bottom:19px;text-align:center}
   @media(max-width:700px){.stats .wrap{grid-template-columns:repeat(2,1fr)}}
-  .stats .num{font-family:"Fraunces",serif;font-size:2.1rem;font-weight:700;color:#fff}
+  .stats .num{font-family:"Fraunces",serif;font-size:1.85rem;font-weight:700;color:#fff;font-variant-numeric:tabular-nums}
   .stats .lbl{font-size:.86rem;opacity:.85}
   .blend{height:56px;background:linear-gradient(180deg,var(--teal) 0%,var(--bg) 100%)}
   .blend.to-mint{background:linear-gradient(180deg,var(--bg) 0%,var(--mint) 100%)}
@@ -95,11 +106,20 @@
   .card .body{padding:18px 20px 20px}
   .card h3{font-size:1.15rem;font-weight:600;color:var(--teal);margin-bottom:6px}
   .card p{font-size:.94rem;color:var(--muted)}
-  .spec{display:flex;gap:14px;background:#fff;border:1px solid #e6f0ed;border-radius:var(--r-md);padding:18px}
-  .spec .ico{flex:0 0 48px;width:48px;height:48px;border-radius:var(--r-sm);background:var(--mint);color:var(--teal);display:flex;align-items:center;justify-content:center}
-  .spec .ico svg{width:26px;height:26px}
-  .spec h3{font-size:1.06rem;font-weight:600;color:var(--teal);margin-bottom:4px}
-  .spec p{font-size:.9rem;color:var(--muted)}
+  .specialty-tabs[hidden],.spec-panel[hidden]{display:none!important}
+  .specialty-tabs{display:flex;gap:8px;overflow-x:auto;scroll-snap-type:x proximity;scrollbar-width:thin;scrollbar-color:var(--teal-2) var(--mint-2);padding:4px 3px 14px;margin:26px -3px 8px}
+  .specialty-tab{flex:0 0 auto;min-height:44px;padding:10px 19px;border:0;border-radius:999px;background:#fff;color:var(--teal);font:700 .9rem/1.4 "Manrope",sans-serif;cursor:pointer;scroll-snap-align:start;transition:background .2s,color .2s}
+  .specialty-tab:hover{background:var(--mint-2)}
+  .specialty-tab[aria-selected="true"]{background:var(--teal);color:#fff}
+  .specialty-tab:focus-visible{outline:3px solid var(--teal-2);outline-offset:3px}
+  .spec-panel{display:grid;grid-template-columns:1.08fr 1fr;background:#fff;border-radius:var(--r-lg);overflow:hidden;margin-top:18px}
+  .spec-photo{min-width:0;min-height:370px}
+  .spec-photo img{width:100%;height:100%;aspect-ratio:1.2;object-fit:cover}
+  .spec-copy{align-self:center;padding:32px 36px}
+  .spec-copy h3{color:var(--teal);font-size:1.8rem;font-weight:600;line-height:1.15;margin-bottom:14px}
+  .spec-copy p{font-size:1rem;color:var(--muted)}
+  .spec-copy .check li{font-size:.94rem}
+  @media(max-width:760px){.spec-panel{grid-template-columns:1fr}.spec-photo{min-height:0}.spec-photo img{height:270px;aspect-ratio:auto}.spec-copy{padding:24px}.spec-copy h3{font-size:1.6rem}}
   .split{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center}
   @media(max-width:860px){.split{grid-template-columns:1fr}}
   .split figure{border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow)}
@@ -123,10 +143,11 @@
   .ba{position:relative;border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow);aspect-ratio:4/3;background:#0a3d39;touch-action:none;user-select:none}
   .ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
   .ba .after{clip-path:inset(0 0 0 50%)}
-  .ba .handle{position:absolute;top:0;bottom:0;left:50%;width:3px;background:#fff;transform:translateX(-50%);box-shadow:0 0 0 1px rgba(0,0,0,.12)}
-  .ba .knob{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:46px;height:46px;border-radius:50%;background:#fff;color:var(--teal);display:flex;align-items:center;justify-content:center;font-weight:800;box-shadow:0 6px 18px rgba(0,0,0,.25);font-size:1rem}
+  .ba .handle{position:absolute;top:0;bottom:0;left:50%;width:4px;background:var(--amber);transform:translateX(-50%);box-shadow:0 0 0 2px rgba(255,255,255,.8)}
+  .ba .knob{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:60px;height:60px;border:5px solid #fff;border-radius:50%;background:var(--amber);color:var(--teal);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,.2)}
+  .ba .knob svg{width:29px;height:29px}
   .ba:focus-visible{outline:3px solid var(--teal-2);outline-offset:4px}
-  .ba .tag{position:absolute;top:14px;z-index:3;background:rgba(10,61,57,.82);color:#fff;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 11px;border-radius:999px}
+  .ba .tag{position:absolute;top:14px;z-index:3;background:var(--teal);color:#fff;font-size:.85rem;font-weight:700;padding:6px 13px;border-radius:999px;pointer-events:none}
   .ba .tag.l{left:14px}.ba .tag.r{right:14px}
   /* Datos prácticos */
   .info{background:var(--teal);color:#eafaf6;border-radius:var(--r-lg);padding:32px;display:grid;grid-template-columns:1.1fr .9fr;gap:26px}
@@ -137,6 +158,15 @@
   .info li{padding:6px 0;display:flex;gap:10px;align-items:flex-start}
   .info li svg{width:19px;height:19px;flex:0 0 19px;margin-top:2px;color:#ffd98a}
   .info .big{font-family:"Fraunces",serif;font-size:1.5rem;font-weight:700;color:#ffd98a}
+  .emergency-process{margin-top:38px}
+  .emergency-process h3{font-size:1.6rem;font-weight:600;color:var(--teal);margin-bottom:25px}
+  .emergency-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;list-style:none;counter-reset:urgencia}
+  .emergency-steps li{counter-increment:urgencia}
+  .emergency-steps li::before{content:counter(urgencia,decimal-leading-zero);display:block;font:600 2.7rem/1 "Fraunces",serif;color:var(--teal-2);margin-bottom:16px}
+  .emergency-steps h4{font:600 1.16rem/1.2 "Fraunces",serif;color:var(--teal);margin-bottom:9px}
+  .emergency-steps p{font-size:.93rem;color:var(--muted)}
+  @media(max-width:860px){.emergency-steps{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:600px){.emergency-steps{grid-template-columns:1fr;gap:25px}.emergency-steps li{position:relative;padding-left:64px}.emergency-steps li::before{position:absolute;left:0;top:0;margin:0;font-size:2.3rem}.emergency-steps p{max-width:38ch}}
   /* Cierre */
   .closing{text-align:center;padding:64px 0}
   .closing h2{font-size:2.2rem;font-weight:600;color:var(--teal);margin-bottom:10px}
@@ -144,6 +174,11 @@
   footer.site{background:#0a3d39;color:#cfe8e2;font-size:.9rem}
   footer.site .wrap{padding-top:26px;padding-bottom:6rem;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
   footer.site .demo-note{flex-basis:100%;font-size:.78rem;line-height:1.5;padding-right:68px}
+  footer.site .btn.emergency{background:var(--amber);color:var(--ink);white-space:nowrap;align-self:center}
+  footer.site .btn.emergency:hover{background:#ffd98a}
+  footer.site .photo-credit{font-size:.82rem;flex-basis:100%}
+  footer.site .photo-credit a{text-decoration:underline;text-underline-offset:3px}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.specialty-tab{transition:none}}
   /* Flotante */
   .float-wa{position:fixed;right:18px;bottom:18px;z-index:60;width:58px;height:58px;border-radius:50%;background:var(--wa);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 24px rgba(0,0,0,.22)}
   .float-wa svg{width:30px;height:30px}
@@ -208,6 +243,10 @@
     </div>
     <div class="visual" data-reveal>
       <figure><img id="heroImg" src="img/p6234611.jpg" alt="Equipo veterinario examinando a un perro en la clínica"></figure>
+      <div class="hero-pets" aria-hidden="true">
+        <img class="pet-dog" src="img/hero-perro.webp" alt="" width="494" height="600">
+        <img class="pet-cat" src="img/hero-gato.webp" alt="" width="422" height="600">
+      </div>
       <div class="floatcard">
         <div>
           <div class="stars">★★★★★</div>
@@ -220,10 +259,10 @@
 
 <div class="stats">
   <div class="wrap">
-    <div><div class="num"><span data-count="12000" data-prefix="+">+0</span></div><div class="lbl">pacientes atendidos</div></div>
-    <div><div class="num"><span data-count="6">0</span></div><div class="lbl">especialidades médicas</div></div>
-    <div><div class="num"><span data-count="24">0</span>/7</div><div class="lbl">guardia de urgencias</div></div>
-    <div><div class="num"><span data-count="14">0</span></div><div class="lbl">profesionales en el equipo</div></div>
+    <div><div class="num"><span data-count="15" data-prefix="+">+15</span></div><div class="lbl">años de trayectoria</div></div>
+    <div><div class="num"><span data-count="12000" data-prefix="+">+12.000</span></div><div class="lbl">pacientes atendidos</div></div>
+    <div><div class="num">4,9<span aria-hidden="true">/5</span></div><div class="lbl">valoración en Google</div></div>
+    <div><div class="num"><span data-count="24">24</span>/7</div><div class="lbl">guardia de urgencias</div></div>
   </div>
 </div>
 <div class="blend"></div>
@@ -257,28 +296,46 @@
     <div data-reveal>
       <span class="kicker">Especialidades</span>
       <h2 class="title">Especialistas que trabajan en equipo</h2>
-      <p class="sub">Como en la medicina humana: cada caso puede pasar por más de una especialidad sin salir de la clínica, con un mismo equipo siguiendo la historia completa.</p>
+      <p class="sub"><span data-count="6">6</span> especialidades médicas y diagnóstico en la clínica. Elegí el área que necesitás y mirá cómo podemos acompañar a tu mascota.</p>
     </div>
-    <div class="grid c2">
-      <div class="spec" data-reveal><div class="ico"><svg><use href="#i-steth"/></svg></div><div><h3>Medicina interna</h3><p>Diagnóstico y tratamiento de enfermedades complejas, endocrinas, renales y digestivas.</p></div></div>
-      <div class="spec" data-reveal><div class="ico"><svg><use href="#i-scalpel"/></svg></div><div><h3>Cirugía general y de tejidos blandos</h3><p>Quirófano equipado, anestesia monitoreada y recuperación con internación propia.</p></div></div>
-      <div class="spec" data-reveal><div class="ico"><svg><use href="#i-eye"/></svg></div><div><h3>Oftalmología</h3><p>Control de la salud ocular, cirugía de cataratas y tratamiento de úlceras y glaucoma.</p></div></div>
-      <div class="spec" data-reveal><div class="ico"><svg><use href="#i-heart"/></svg></div><div><h3>Cardiología</h3><p>Ecocardiografía, electrocardiograma y control de pacientes cardíacos crónicos.</p></div></div>
-      <div class="spec" data-reveal><div class="ico"><svg><use href="#i-tooth"/></svg></div><div><h3>Odontología</h3><p>Limpieza con ultrasonido, extracciones y salud bucal preventiva para evitar dolor e infecciones.</p></div></div>
-      <div class="spec" data-reveal><div class="ico"><svg><use href="#i-cat"/></svg></div><div><h3>Medicina felina</h3><p>Sala de espera e internación separadas para gatos, con manejo pensado para bajar su estrés.</p></div></div>
+    <div class="specialty-tabs" role="tablist" aria-label="Elegí una especialidad" hidden>
+      <button class="specialty-tab" id="tab-clinica" type="button" role="tab" aria-selected="true" aria-controls="panel-clinica">Clínica</button>
+      <button class="specialty-tab" id="tab-cirugia" type="button" role="tab" aria-selected="false" aria-controls="panel-cirugia" tabindex="-1">Cirugía</button>
+      <button class="specialty-tab" id="tab-oftalmologia" type="button" role="tab" aria-selected="false" aria-controls="panel-oftalmologia" tabindex="-1">Oftalmología</button>
+      <button class="specialty-tab" id="tab-cardiologia" type="button" role="tab" aria-selected="false" aria-controls="panel-cardiologia" tabindex="-1">Cardiología</button>
+      <button class="specialty-tab" id="tab-odontologia" type="button" role="tab" aria-selected="false" aria-controls="panel-odontologia" tabindex="-1">Odontología</button>
+      <button class="specialty-tab" id="tab-felina" type="button" role="tab" aria-selected="false" aria-controls="panel-felina" tabindex="-1">Medicina felina</button>
+      <button class="specialty-tab" id="tab-diagnostico" type="button" role="tab" aria-selected="false" aria-controls="panel-diagnostico" tabindex="-1">Diagnóstico</button>
     </div>
-    <div class="split" style="margin-top:36px">
-      <figure data-reveal><img src="img/p6235649.jpg" alt="Ecografía a un perro en la clínica"></figure>
-      <div data-reveal>
-        <h3 class="serif" style="color:var(--teal);font-size:1.5rem;font-weight:600">Diagnóstico por imágenes y laboratorio propio</h3>
-        <p style="color:var(--muted);margin-top:8px">Ecografía, radiología digital y laboratorio en la clínica: el diagnóstico no espera derivaciones y el tratamiento arranca el mismo día.</p>
-        <ul class="check">
-          <li>Ecografías abdominales, cardíacas y de gestación</li>
-          <li>Radiografías digitales con informe en el día</li>
-          <li>Análisis de sangre y orina con resultados rápidos</li>
-          <li>Informes claros, explicados paso a paso</li>
-        </ul>
-      </div>
+    <div class="specialty-content" data-reveal>
+      <article class="spec-panel" id="panel-clinica" role="tabpanel" aria-labelledby="tab-clinica" tabindex="0">
+        <div class="spec-photo"><img src="img/p7469229.jpg" alt="Atención veterinaria de un perro durante una consulta" loading="lazy"></div>
+        <div class="spec-copy"><h3>Medicina interna</h3><p>Contanos qué cambios notás en tu mascota. Un mismo equipo sigue su historia y te explica el diagnóstico y el tratamiento.</p><ul class="check"><li>Enfermedades endocrinas, renales y digestivas</li><li>Control de pacientes crónicos</li><li>Seguimiento según edad y estado de salud</li></ul></div>
+      </article>
+      <article class="spec-panel" id="panel-cirugia" role="tabpanel" aria-labelledby="tab-cirugia" tabindex="0">
+        <div class="spec-photo"><img src="img/p7469274.jpg" alt="Equipo veterinario atendiendo a un perro en la clínica" loading="lazy"></div>
+        <div class="spec-copy"><h3>Cirugía general y de tejidos blandos</h3><p>Conocé cómo acompañamos a tu mascota antes, durante y después de la cirugía, con quirófano e internación en la clínica.</p><ul class="check"><li>Quirófano equipado</li><li>Anestesia monitoreada</li><li>Recuperación y seguimiento posoperatorio</li></ul></div>
+      </article>
+      <article class="spec-panel" id="panel-oftalmologia" role="tabpanel" aria-labelledby="tab-oftalmologia" tabindex="0">
+        <div class="spec-photo"><img src="img/p6234611.jpg" alt="Revisión de un perro en el consultorio veterinario" loading="lazy"></div>
+        <div class="spec-copy"><h3>Oftalmología</h3><p>Si notás cambios en los ojos de tu mascota, contanos qué pasa. Revisamos su salud ocular y te explicamos los cuidados.</p><ul class="check"><li>Control de la salud ocular</li><li>Tratamiento de úlceras y glaucoma</li><li>Cirugía de cataratas</li></ul></div>
+      </article>
+      <article class="spec-panel" id="panel-cardiologia" role="tabpanel" aria-labelledby="tab-cardiologia" tabindex="0">
+        <div class="spec-photo"><img src="img/p6235232.jpg" alt="Profesional utilizando equipamiento de diagnóstico veterinario" loading="lazy"></div>
+        <div class="spec-copy"><h3>Cardiología</h3><p>Seguí el control cardíaco de tu mascota con estudios en la clínica y explicaciones claras sobre cada resultado.</p><ul class="check"><li>Ecocardiografía</li><li>Electrocardiograma</li><li>Control de pacientes cardíacos crónicos</li></ul></div>
+      </article>
+      <article class="spec-panel" id="panel-odontologia" role="tabpanel" aria-labelledby="tab-odontologia" tabindex="0">
+        <div class="spec-photo"><img src="img/p7469223.jpg" alt="Atención de un perro por una profesional veterinaria" loading="lazy"></div>
+        <div class="spec-copy"><h3>Odontología</h3><p>Cuidá también su salud bucal. Revisamos la boca de tu mascota y te explicamos qué necesita para prevenir dolor e infecciones.</p><ul class="check"><li>Limpieza con ultrasonido</li><li>Extracciones</li><li>Salud bucal preventiva</li></ul></div>
+      </article>
+      <article class="spec-panel" id="panel-felina" role="tabpanel" aria-labelledby="tab-felina" tabindex="0">
+        <div class="spec-photo"><img src="img/p6816869.jpg" alt="Atención veterinaria de un gato en el consultorio" loading="lazy"></div>
+        <div class="spec-copy"><h3>Medicina felina</h3><p>Traé a tu gato a un espacio pensado para él: separado de los perros y con un manejo que ayuda a bajar su estrés.</p><ul class="check"><li>Sala de espera separada</li><li>Internación exclusiva para gatos</li><li>Seguimiento de su historia clínica</li></ul></div>
+      </article>
+      <article class="spec-panel" id="panel-diagnostico" role="tabpanel" aria-labelledby="tab-diagnostico" tabindex="0">
+        <div class="spec-photo"><img src="img/p6235649.jpg" alt="Ecografía a un perro en la clínica" loading="lazy"></div>
+        <div class="spec-copy"><h3>Diagnóstico por imágenes y laboratorio propio</h3><p>Recibí los resultados y una explicación paso a paso, con ecografía, radiología digital y laboratorio en la misma clínica.</p><ul class="check"><li>Ecografías abdominales, cardíacas y de gestación</li><li>Radiografías digitales con informe en el día</li><li>Análisis de sangre y orina con resultados rápidos</li></ul></div>
+      </article>
     </div>
   </div>
 </section>
@@ -315,10 +372,10 @@
         </ul>
       </div>
       <div class="ba" id="baSlider" data-reveal tabindex="0" role="slider" aria-label="Comparar en el baño y terminado" aria-orientation="horizontal" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
-        <img src="img/p6816860.jpg" alt="Perro terminado en la peluquería">
-        <img class="after" id="baAfter" src="img/p6131165.jpg" alt="Perro durante el baño">
-        <span class="tag l">Terminado</span><span class="tag r">En el baño</span>
-        <div class="handle" id="baHandle"><div class="knob">↔</div></div>
+        <img src="img/p6131165.jpg" alt="Perro durante el baño">
+        <img class="after" id="baAfter" src="img/p6816860.jpg" alt="Perro terminado en la peluquería">
+        <span class="tag l">Antes</span><span class="tag r">Después</span>
+        <div class="handle" id="baHandle"><div class="knob" aria-hidden="true"><svg viewBox="0 0 32 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m10 6-6 6 6 6M4 12h9m9-6 6 6-6 6m6-6h-9"/></svg></div></div>
       </div>
     </div>
   </div>
@@ -330,7 +387,7 @@
     <div data-reveal>
       <span class="kicker">Equipo</span>
       <h2 class="title">Las personas detrás de Alba</h2>
-      <p class="sub">Un equipo estable, que conoce a cada paciente por su nombre y sigue su historia en el tiempo.</p>
+      <p class="sub"><span data-count="14">14</span> profesionales en un equipo estable, que conoce a cada paciente por su nombre y sigue su historia en el tiempo.</p>
     </div>
     <div class="grid c4">
       <div class="member" data-reveal><img src="img/equipo-1.jpg" alt="Foto ilustrativa de una profesional con guardapolvo blanco atendiendo a un perro en el consultorio"><div class="body"><h3>Dra. Valeria Montes</h3><span class="tag">Dirección médica · Medicina interna</span><p>Más de 15 años de clínica de pequeños animales y formación continua en medicina interna.</p></div></div>
@@ -366,6 +423,15 @@
         <p style="margin-top:16px"><a class="btn wa" href="https://wa.me/5491100000000" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Escribir por WhatsApp</a></p>
       </div>
     </div>
+    <div class="emergency-process">
+      <h3 class="serif" data-reveal>La atención de urgencias, paso a paso</h3>
+      <ol class="emergency-steps">
+        <li data-reveal><h4>Estabilización</h4><p>La guardia recibe a tu mascota y atiende la urgencia.</p></li>
+        <li data-reveal><h4>Diagnóstico</h4><p>Con imágenes y laboratorio en la clínica, te explicamos qué pasa.</p></li>
+        <li data-reveal><h4>Internación</h4><p>Si necesita quedarse, la cuidamos con control las 24 horas.</p></li>
+        <li data-reveal><h4>Alta acompañada</h4><p>Te explicamos los cuidados y coordinamos el seguimiento.</p></li>
+      </ol>
+    </div>
   </div>
 </section>
 
@@ -381,7 +447,9 @@
   <div class="wrap">
     <span>Clínica Veterinaria Alba · Clínica y hospital veterinario</span>
     <span>Av. del Libertador 4200, Núñez · Urgencias 24 h</span>
+    <a class="btn emergency" href="https://wa.me/5491100000000" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Urgencias 24 h</a>
     <p class="demo-note">Vidriera de demostración de Nexvia IA · Marca, personas y datos ficticios.</p>
+    <p class="photo-credit">Fotos ilustrativas de Pexels. Recortes del hero: <a href="https://www.pexels.com/photo/studio-portrait-of-a-fluffy-white-dog-on-black-background-37427164/" target="_blank" rel="noopener">Jay Brand</a> y <a href="https://www.pexels.com/photo/sitting-cat-on-white-background-16260957/" target="_blank" rel="noopener">Jem Perez</a>.</p>
   </div>
 </footer>
 
@@ -393,6 +461,38 @@
 <script>
 (function(){
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  /* Especialidades: funciona también sin animaciones. Sin JS se leen todos los paneles. */
+  var tablist = document.querySelector('.specialty-tabs');
+  if (tablist) {
+    var tabs = Array.from(tablist.querySelectorAll('[role="tab"]'));
+    function selectSpecialty(tab, focus) {
+      tabs.forEach(function(item){
+        var selected = item === tab;
+        item.setAttribute('aria-selected', selected ? 'true' : 'false');
+        item.tabIndex = selected ? 0 : -1;
+        document.getElementById(item.getAttribute('aria-controls')).hidden = !selected;
+      });
+      if (focus) tab.focus({preventScroll:true});
+      var left = tab.offsetLeft - tablist.offsetLeft;
+      if (left < tablist.scrollLeft) tablist.scrollLeft = left;
+      else if (left + tab.offsetWidth > tablist.scrollLeft + tablist.clientWidth) tablist.scrollLeft = left + tab.offsetWidth - tablist.clientWidth;
+      if (!reduced && window.ScrollTrigger && ScrollTrigger.getAll().length) ScrollTrigger.refresh();
+    }
+    tablist.hidden = false;
+    selectSpecialty(tabs[0], false);
+    tabs.forEach(function(tab, index){
+      tab.addEventListener('click', function(){selectSpecialty(tab, false);});
+      tab.addEventListener('keydown', function(e){
+        var next;
+        if (e.key === 'ArrowRight') next = (index + 1) % tabs.length;
+        else if (e.key === 'ArrowLeft') next = (index + tabs.length - 1) % tabs.length;
+        else if (e.key === 'Home') next = 0;
+        else if (e.key === 'End') next = tabs.length - 1;
+        else return;
+        e.preventDefault(); selectSpecialty(tabs[next], true);
+      });
+    });
+  }
   /* Antes y después */
   var ba = document.getElementById("baSlider"), after = document.getElementById("baAfter"), handle = document.getElementById("baHandle");
   if (ba && after && handle) {
