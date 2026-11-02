@@ -165,3 +165,11 @@ No quedan filtros, roles tab/tabpanel, slider ni eventos de comparación. Se con
 - **Don't** añadir rojo, vidrio decorativo, tarjetas pesadas de proceso ni fotos grandes de especialidad.
 - **Don't** inventar precios, pacientes, prestaciones, atribuciones o prueba social, ni reutilizar este molde en las otras vidrieras.
 - **Don't** usar estrellas tipográficas: conservar cinco SVG por opinión y el nombre accesible «5 de 5».
+
+### Corrección del ícono de WhatsApp
+
+Se reemplaza el trazado heredado por el SVG de WhatsApp de Bootstrap Icons (MIT),
+con viewBox16×16 propio en cada aparición, proporción centrada, fill currentColor
+y sin stroke. Las18apariciones incluyen17enlaces y el dato de contacto. Se
+conservan tamaños y colores por contexto; sin cambios de textos, enlaces ni diseño.
+Licencia y procedencia en THIRD-PARTY-LICENSES.txt.
